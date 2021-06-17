@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 0.44.0">
+  <meta name="description" content="tencent_trtc_cloud API docs, for the Dart programming language.">
+  <title>tencent_trtc_cloud - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://cloud.tencent.com/document/product/647">tencent_trtc_cloud package</a></li>
+  </ol>
+  <div class="self-name">tencent_trtc_cloud</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h2 id="-tencent_trtc_cloud">腾讯 tencent_trtc_cloud</h2>
+<p><a href="https://intl.cloud.tencent.com/document/product/647/39243?lang=en&amp;pg=">English document</a> <a href="https://intl.cloud.tencent.com/jp/document/product/647/39243?lang=jp&amp;pg=">英語の文書</a></p>
+<p>该flutter sdk是基于 腾讯云 iOS/Android 平台的 SDK进行封装。</p>
+<p><a href="https://cloud.tencent.com/document/product/647/51530">API 概览</a></p>
+<p><a href="https://pub.dev/documentation/tencent_trtc_cloud/latest/index.html">API 详细文档</a></p>
+<p>多人视频会议DEMO地址 <a href="https://github.com/c1avie/trtc_demo">Github</a>。</p>
+<p>一对一音视频通话、语音沙龙DEMO地址 <a href="https://github.com/tencentyun/TRTCFlutterScenesDemo">Github</a>。</p>
+<p>任何问题可以通过 Github Issues 提问，也可加qq群788910197咨询。</p>
+<p>注意：demo不支持模拟机运行，请使用真机开发调试。</p>
+<h4 id="demo">快速跑通Demo</h4>
+<p>详情参考<a href="https://cloud.tencent.com/document/product/647/51601">跑通Demo(Flutter)</a></p>
+<h4 id="sdk">快速集成SDK</h4>
+<p>详情参考<a href="https://cloud.tencent.com/document/product/647/51602">快速集成(Flutter)</a></p>
+<h4 id="sdk-2">sdk类文件说明</h4>
+<ul>
+<li>trtc_cloud-腾讯云视频通话功能的主要接口类</li>
+<li>trtc_cloud_video_view-提供渲染视频TRTCCloudVideoView的widget</li>
+<li>tx_audio_effect_manager-腾讯云视频通话功能音乐和人声设置接口</li>
+<li>tx_beauty_manager-美颜及动效参数管理</li>
+<li>tx_device_manager-设备管理类</li>
+<li>trtc_cloud_def-腾讯云视频通话功能的关键类型定义</li>
+<li>trtc_cloud_listener-腾讯云视频通话功能的事件回调监听接口</li>
+</ul>
+<h4 id="">调用示例</h4>
+<p>1.初始化</p>
+<pre class="language-dart"><code>// 创建 TRTCCloud 单例
+trtcCloud = await TRTCCloud.sharedInstance();
+// 获取设备管理模块
+txDeviceManager = trtcCloud.getDeviceManager();
+// 获取美颜管理对象
+txBeautyManager = trtcCloud.getBeautyManager();
+// 获取音效管理类
+txAudioManager = trtcCloud.getAudioEffectManager();
+</code></pre>
+<p>2.进退房</p>
+<pre class="language-dart"><code>//进房
+trtcCloud.enterRoom(
+        TRTCParams(
+            sdkAppId: sdkAppId, //应用Id
+            userId: userId, // 用户Id
+            userSig: userSig, // 用户签名
+            roomId: roomId), //房间Id
+        TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL);
+//退房
+trtcCloud.exitRoom();
+</code></pre>
+<p>3.事件监听</p>
+<pre class="language-dart"><code>//设置事件监听
+trtcCloud.registerListener(onRtcListener);
+onRtcListener(type, param) {
+  //进房回调事件
+  if (type == TRTCCloudListener.onEnterRoom) {
+    if (param &gt; 0) {
+      showToast('进房成功');
+    }
+  }
+  // 远端用户进房
+  if (type == TRTCCloudListener.onRemoteUserEnterRoom) {
+    //param参数为远端用户userId
+  }
+  //远端用户是否存在可播放的主路画面（一般用于摄像头）
+  if (type == TRTCCloudListener.onUserVideoAvailable) {
+    //param['userId']表示远端用户id
+    //param['visible']画面是否开启
+  }
+}
+//移除事件监听
+trtcCloud.unRegisterListener(onRtcListener);
+</code></pre>
+<p>4.显示本地视频</p>
+<pre class="language-dart"><code>// 参数：
+// frontCamera	true：前置摄像头；false：后置摄像头
+// viewId TRTCCloudVideoView生成的viewId
+TRTCCloudVideoView(
+    onViewCreated: (viewId) {
+      trtcCloud.startLocalPreview(true, viewId);
+});
+</code></pre>
+<p>5.显示远端视频</p>
+<pre class="language-dart"><code>// 参数：
+// userId 指定远端用户的 userId
+// streamType 指定要观看 userId 的视频流类型：
+//* 高清大画面：TRTCCloudDef.TRTC_VIDEO_STREAM_TYPE_BIG
+//* 低清大画面：TRTCCloudDef.TRTC_VIDEO_STREAM_TYPE_SMALL
+// viewId TRTCCloudVideoView生成的viewId
+TRTCCloudVideoView(
+    onViewCreated: (viewId) {
+      trtcCloud.startRemoteView(userId, TRTCCloudDef.TRTC_VIDEO_STREAM_TYPE_SMALL, viewId);
+});
+</code></pre>
+<p>5.显示远端屏幕分享</p>
+<pre class="language-dart"><code>/// 参数：
+/// userId 指定远端用户的 userId
+/// streamType 指定要观看 userId 的视频流类型：
+///* 辅流（屏幕分享）：TRTCCloudDe.TRTC_VIDEO_STREAM_TYPE_SUB
+/// viewId TRTCCloudVideoView生成的viewId
+TRTCCloudVideoView(
+    onViewCreated: (viewId) {
+      trtcCloud.startRemoteView(userId, TRTCCloudDef.TRTC_VIDEO_STREAM_TYPE_SUB, viewId);
+});
+</code></pre>
+<h4 id="-trtc-">如何查看 TRTC 日志？</h4>
+<p>TRTC 的日志默认压缩加密，后缀为 .xlog。</p>
+<ul>
+<li>iOS：sandbox的Documents/log</li>
+<li>Android
+<ul>
+<li>6.7及之前的版本：/sdcard/log/tencent/liteav</li>
+<li>6.8之后的版本：/sdcard/Android/data/包名/files/log/tencent/liteav/</li>
+</ul>
+</li>
+</ul>
+<h4 id="-2">常见问题</h4>
+<p>更多常见问题参考<a href="https://cloud.tencent.com/document/product/647/51623">文档</a></p>
+<h5 id="iosandroid">iOS无法显示视频（Android是好的）</h5>
+<p>请确认 io.flutter.embedded_views_preview为<code>YES</code>在你的info.plist中</p>
+<h5 id="android-manifest-merge-failed">Android Manifest merge failed编译失败</h5>
+<p>请打开/example/android/app/src/main/AndroidManifest.xml文件。</p>
+<p>1.将xmlns:tools="http://schemas.android.com/tools" 加入到manifest中</p>
+<p>2.将tools:replace="android:label"加入到application中。</p>
+<p><img src="https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png" alt="图示"></p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="trtc_cloud">
+  <span class="name"><a href="trtc_cloud/trtc_cloud-library.html">trtc_cloud</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="trtc_cloud_def">
+  <span class="name"><a href="trtc_cloud_def/trtc_cloud_def-library.html">trtc_cloud_def</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="trtc_cloud_listener">
+  <span class="name"><a href="trtc_cloud_listener/trtc_cloud_listener-library.html">trtc_cloud_listener</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="trtc_cloud_video_view">
+  <span class="name"><a href="trtc_cloud_video_view/trtc_cloud_video_view-library.html">trtc_cloud_video_view</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="tx_audio_effect_manager">
+  <span class="name"><a href="tx_audio_effect_manager/tx_audio_effect_manager-library.html">tx_audio_effect_manager</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="tx_beauty_manager">
+  <span class="name"><a href="tx_beauty_manager/tx_beauty_manager-library.html">tx_beauty_manager</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+          <dt id="tx_device_manager">
+  <span class="name"><a href="tx_device_manager/tx_device_manager-library.html">tx_device_manager</a></span> 
+
+</dt>
+<dd> 
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://cloud.tencent.com/document/product/647">tencent_trtc_cloud package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">tencent_trtc_cloud</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="trtc_cloud/trtc_cloud-library.html">trtc_cloud</a></li>
+      <li><a href="trtc_cloud_def/trtc_cloud_def-library.html">trtc_cloud_def</a></li>
+      <li><a href="trtc_cloud_listener/trtc_cloud_listener-library.html">trtc_cloud_listener</a></li>
+      <li><a href="trtc_cloud_video_view/trtc_cloud_video_view-library.html">trtc_cloud_video_view</a></li>
+      <li><a href="tx_audio_effect_manager/tx_audio_effect_manager-library.html">tx_audio_effect_manager</a></li>
+      <li><a href="tx_beauty_manager/tx_beauty_manager-library.html">tx_beauty_manager</a></li>
+      <li><a href="tx_device_manager/tx_device_manager-library.html">tx_device_manager</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tencent_trtc_cloud
+      1.0.4
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

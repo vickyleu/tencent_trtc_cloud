@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the setSystemVolumeType method from the TXDeviceManager class, for the Dart programming language.">
+  <title>setSystemVolumeType method - TXDeviceManager class - tx_device_manager library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tencent_trtc_cloud</a></li>
+    <li><a href="../../tx_device_manager/tx_device_manager-library.html">tx_device_manager</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager-class.html">TXDeviceManager</a></li>
+    <li class="self-crumb">setSystemVolumeType method</li>
+  </ol>
+  <div class="self-name">setSystemVolumeType</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">setSystemVolumeType</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">setSystemVolumeType</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setSystemVolumeType-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">type</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>设置通话时使用的系统音量类型。</p>
+<p>智能手机一般具备两种系统音量类型，即通话音量类型和媒体音量类型。</p>
+<p>SDK 目前提供了三种系统音量类型的控制模式，分别为：</p>
+<ul>
+<li>
+<p>TRTCCloudDef.TRTCSystemVolumeTypeAuto： “麦上通话，麦下媒体”，即主播上麦时使用通话音量，观众不上麦则使用媒体音量，适合在线直播场景。 如果您在 enterRoom 时选择的场景为 TRTCCloudDef.TRTC_APP_SCENE_LIVE 或 TRTCCloudDef.TRTC_APP_SCENE_VOICE_CHATROOM，SDK 会自动选择该模式。</p>
+</li>
+<li>
+<p>TRTCCloudDef.TRTCSystemVolumeTypeVOIP： 通话全程使用通话音量，适合多人会议场景。 如果您在 enterRoom 时选择的场景为 TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL 或 TRTCCloudDef.TRTC_APP_SCENE_AUDIOCALL，SDK 会自动选择该模式。</p>
+</li>
+<li>
+<p>TRTCCloudDef.TRTCSystemVolumeTypeMedia： 通话全程使用媒体音量，不常用，适合个别有特殊需求（如主播外接声卡）的应用场景。</p>
+</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>
+<p>需要在调用 startLocalAudio() 之前调用该接口。</p>
+</li>
+<li>
+<p>如无特殊需求，不推荐您自行设置，您只需通过 enterRoom 设置好适合您的场景，SDK 内部会自动选择相匹配的音量类型。</p>
+</li>
+</ul>
+<p>参数：</p>
+<p>type	系统音量类型，如无特殊需求，不推荐您自行设置。</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setSystemVolumeType(
+    int type &#47;&#47; 系统音量类型，请参考 TRTCSystemVolumeType，默认值：TRTCSystemVolumeTypeAuto。
+    ) {
+  return _channel.invokeMethod(&#39;setSystemVolumeType&#39;, {
+    &quot;type&quot;: type,
+  });
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">tencent_trtc_cloud</a></li>
+  <li><a href="../../tx_device_manager/tx_device_manager-library.html">tx_device_manager</a></li>
+  <li><a href="../../tx_device_manager/TXDeviceManager-class.html">TXDeviceManager</a></li>
+  <li class="self-crumb">setSystemVolumeType method</li>
+</ol>
+
+
+    <h5>TXDeviceManager class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../tx_device_manager/TXDeviceManager-class.html#constructors">Constructors</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/TXDeviceManager.html">TXDeviceManager</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../tx_device_manager/TXDeviceManager-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../tx_device_manager/TXDeviceManager-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/enableCameraAutoFocus.html">enableCameraAutoFocus</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/enableCameraTorch.html">enableCameraTorch</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/getCameraZoomMaxRatio.html">getCameraZoomMaxRatio</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/isAutoFocusEnabled.html">isAutoFocusEnabled</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/isFrontCamera.html">isFrontCamera</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/setAudioRoute.html">setAudioRoute</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/setCameraFocusPosition.html">setCameraFocusPosition</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/setCameraZoomRatio.html">setCameraZoomRatio</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/setSystemVolumeType.html">setSystemVolumeType</a></li>
+    <li><a href="../../tx_device_manager/TXDeviceManager/switchCamera.html">switchCamera</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../tx_device_manager/TXDeviceManager-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tencent_trtc_cloud
+      1.0.2
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

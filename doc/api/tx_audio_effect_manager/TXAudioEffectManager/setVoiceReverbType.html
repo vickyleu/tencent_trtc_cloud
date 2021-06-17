@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the setVoiceReverbType method from the TXAudioEffectManager class, for the Dart programming language.">
+  <title>setVoiceReverbType method - TXAudioEffectManager class - tx_audio_effect_manager library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">tencent_trtc_cloud</a></li>
+    <li><a href="../../tx_audio_effect_manager/tx_audio_effect_manager-library.html">tx_audio_effect_manager</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html">TXAudioEffectManager</a></li>
+    <li class="self-crumb">setVoiceReverbType method</li>
+  </ol>
+  <div class="self-name">setVoiceReverbType</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">setVoiceReverbType</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">setVoiceReverbType</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="setVoiceReverbType-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">type</span></span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>设置人声的混响效果（KTV、小房间、大会堂、低沉、洪亮...）</p>
+<p>参数：</p>
+<p>默认为TXVoiceReverbType.TXLiveVoiceReverbType_0，详情见trtc_cloud.def文件中TXVoiceReverbType参数定义</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; setVoiceReverbType(int type) {
+  return _channel.invokeMethod(&#39;setVoiceReverbType&#39;, {&quot;type&quot;: type});
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">tencent_trtc_cloud</a></li>
+  <li><a href="../../tx_audio_effect_manager/tx_audio_effect_manager-library.html">tx_audio_effect_manager</a></li>
+  <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html">TXAudioEffectManager</a></li>
+  <li class="self-crumb">setVoiceReverbType method</li>
+</ol>
+
+
+    <h5>TXAudioEffectManager class</h5>
+    <ol>
+
+    <li class="section-title"><a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html#constructors">Constructors</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/TXAudioEffectManager.html">TXAudioEffectManager</a></li>
+
+
+    <li class="section-title inherited">
+      <a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html#instance-properties">Properties</a>
+    </li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+
+    <li class="section-title"><a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/enableVoiceEarMonitor.html">enableVoiceEarMonitor</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/getMusicCurrentPosInMS.html">getMusicCurrentPosInMS</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/getMusicDurationInMS.html">getMusicDurationInMS</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/pausePlayMusic.html">pausePlayMusic</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/resumePlayMusic.html">resumePlayMusic</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/seekMusicToPosInMS.html">seekMusicToPosInMS</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setAllMusicVolume.html">setAllMusicVolume</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setMusicPitch.html">setMusicPitch</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setMusicPlayoutVolume.html">setMusicPlayoutVolume</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setMusicPublishVolume.html">setMusicPublishVolume</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setMusicSpeedRate.html">setMusicSpeedRate</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setVoiceCaptureVolume.html">setVoiceCaptureVolume</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setVoiceChangerType.html">setVoiceChangerType</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setVoiceEarMonitorVolume.html">setVoiceEarMonitorVolume</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/setVoiceReverbType.html">setVoiceReverbType</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/startPlayMusic.html">startPlayMusic</a></li>
+    <li><a href="../../tx_audio_effect_manager/TXAudioEffectManager/stopPlayMusic.html">stopPlayMusic</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+
+    <li class="section-title inherited"><a href="../../tx_audio_effect_manager/TXAudioEffectManager-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    tencent_trtc_cloud
+      1.0.2
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+
